@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose = require("mongoose");
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 const homeStartingContent = "Welcome to Blog-Post, a virtual haven for aspiring writers and passionate bloggers. Unleash your creativity and express your unique voice on our platform. Seamlessly compose and publish your captivating blog posts, sharing your insights, stories, and expertise with the world. Join our community of wordsmiths and let your thoughts paint a masterpiece on this digital canvas of ideas.";
@@ -13,7 +14,7 @@ const aboutContent = "Welcome to Blog-Post, a dynamic platform designed to empow
 const contactContent = "We would love to hear from you at Blog-Post! If you have any questions, suggestions, or simply want to connect, feel free to reach out. Our team is dedicated to providing you with the best blogging experience.You can email us at saksham.sambhav99@gmail.com or call us at our customer executive number:7470827918";
 
 const app = express();
-
+app.use(cors());
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));

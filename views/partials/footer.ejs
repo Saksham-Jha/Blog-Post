@@ -2,7 +2,33 @@
 </div>
 <div class="footer-padding"></div>
   <div class="footer">
-    <p>Made with ❤️ by Saksham Jha</p>
+    <script>
+      function func()
+      {
+
+        var myHeaders = new Headers();
+myHeaders.append("X-Api-Key", "lp1Cg3i+d+SfrZw+EzJk+w==hSrCX4YZ4xEENoxl");
+
+var raw = "";
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+ redirect: 'follow'
+};
+
+fetch("https://api.api-ninjas.com/v1/quotes?category=happiness", requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    const data = JSON.parse(result);
+    // console.log(data);
+    document.getElementById("quote").innerHTML = data[0].quote;
+  })
+  .catch(error => console.log('error', error));
+      }  
+      func();
+    </script>
+    <p id = "quote">Made with ❤️ by Saksham Jha</p>
   </div>
 </div>
 </body>
